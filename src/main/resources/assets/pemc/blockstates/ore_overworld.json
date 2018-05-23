@@ -1,6 +1,6 @@
 {
   "variants": {
-    "type=asmil": {
+    "variant=asmil": {
       "model": "pemc:ore_overworld_asmil"
     }
   }

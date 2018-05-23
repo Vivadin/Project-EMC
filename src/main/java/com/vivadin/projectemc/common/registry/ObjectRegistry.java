@@ -1,6 +1,7 @@
 package com.vivadin.projectemc.common.registry;
 
 import com.vivadin.projectemc.ProjectEmc;
+import com.vivadin.projectemc.common.EnumBlock;
 import com.vivadin.projectemc.common.ItemBlockVariant;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -29,10 +30,22 @@ public class ObjectRegistry
       
       block.setUnlocalizedName(name);
       register(registry, block, name);
-      _itemBlocks.add(
-         new ItemBlockVariant(block)
-            .setRegistryName(block.getRegistryName())
-      );
+      
+      // Register the blocks item.
+      // This differs for instances of EnumBlock, where we need to register it
+      // as a variant
+      if (block instanceof EnumBlock)
+            _itemBlocks.add(
+               new ItemBlockVariant(block)
+                  .setRegistryName(block.getRegistryName())
+            );
+      else
+         _itemBlocks.add(
+            new ItemBlock(block)
+               .setRegistryName(block.getRegistryName())
+         );
+      
+      // Return the block - we only want a single instance!
       return block;
    }
    
