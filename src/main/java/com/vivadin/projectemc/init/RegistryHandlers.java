@@ -3,7 +3,9 @@ package com.vivadin.projectemc.init;
 import com.vivadin.projectemc.common.ItemBlockVariant;
 import com.vivadin.projectemc.common.registry.ObjectRegistry;
 import com.vivadin.projectemc.objects.PemcBlocks;
+import com.vivadin.projectemc.objects.PemcItems;
 import com.vivadin.projectemc.objects.blocks.BlockEmcOre;
+import com.vivadin.projectemc.objects.items.ItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -22,33 +24,33 @@ public class RegistryHandlers extends ObjectRegistry
    @SubscribeEvent
    public static void registerBlocks(final RegistryEvent.Register<Block> event)
    {
-      // Register the blocks
+      // Get the registry
       final IForgeRegistry<Block> registry = event.getRegistry();
       
+      // Register Blocks
       PemcBlocks.emcOre = registerBlock(registry, new BlockEmcOre(), "ore_overworld");
    }
    
    @SubscribeEvent
    public static void registerItems(final RegistryEvent.Register<Item> event)
    {
-      // Register the Items7
+      // Get the registry
       final IForgeRegistry<Item> registry = event.getRegistry();
       
       // New block item registration function
       registerItemsFromBlocks(registry);
       
-      //registerItem(
-      //   registry,
-      //   new ItemBlockVariant(PemcBlocks.emcOre),
-           // .setRegistryName(PemcBlocks.emcOre.getRegistryName()),
-      //   "ore_overworld"
-      //);
+      // Register Items
+      PemcItems.asmilIngot = registerItem(registry, new ItemBase("ingot_asmil"), "ingot_asmil");
+      PemcItems.asmilNugget = registerItem(registry, new ItemBase("nugget_asmil"), "nugget_asmil");
    }
    
    @SubscribeEvent
    public static void onModelRegister(ModelRegistryEvent event)
    {
       PemcBlocks.emcOre.registerModels();
+      PemcItems.asmilIngot.registerModel();
+      PemcItems.asmilNugget.registerModel();
    }
    
    
