@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "i"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "pemc:ingot_asmil"
+    }
+  },
+  "result":
+  {
+    "item": "pemc:nugget_asmil",
+    "count": 9
+  }
+}
