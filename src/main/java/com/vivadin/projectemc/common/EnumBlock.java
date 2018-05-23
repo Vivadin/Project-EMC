@@ -1,5 +1,6 @@
 package com.vivadin.projectemc.common;
 
+import com.vivadin.projectemc.ProjectEmc;
 import com.vivadin.projectemc.interfaces.IEnumMeta;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,6 +8,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
@@ -71,12 +73,32 @@ public class EnumBlock<E extends Enum<E> & IEnumMeta & IStringSerializable> exte
       return getMetaFromState(state);
    }
    
+   public String getMetaName(int meta)
+   {
+      if (meta < 0 || meta >= values.length)
+         meta = 0;
+      
+      return values[meta].getName();
+   }
+   
    protected E fromMeta(int meta)
    {
       if (meta < 0 || meta >= values.length)
          meta = 0;
       
       return values[meta];
+   }
+   
+   public void registerModels()
+   {
+      for (int i = 0; i < values.length; i++) {
+         ProjectEmc.proxy.registerVariantRenderer(
+            Item.getItemFromBlock(this),
+            i,
+            "ore_overworld_" + values[i].getName(),
+            "inventory"
+         );
+      }
    }
 }
 

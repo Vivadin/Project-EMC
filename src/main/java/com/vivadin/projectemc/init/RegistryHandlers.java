@@ -1,10 +1,12 @@
 package com.vivadin.projectemc.init;
 
+import com.vivadin.projectemc.common.ItemBlockVariant;
 import com.vivadin.projectemc.common.registry.ObjectRegistry;
 import com.vivadin.projectemc.objects.PemcBlocks;
 import com.vivadin.projectemc.objects.blocks.BlockEmcOre;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -25,6 +27,22 @@ public class RegistryHandlers extends ObjectRegistry
    @SubscribeEvent
    public static void registerItemBlocks(final RegistryEvent.Register<Item> event)
    {
-      // Register the blocks!
+      // Register the Items7
+      final IForgeRegistry<Item> registry = event.getRegistry();
+      
+      registerItem(
+         registry,
+         new ItemBlockVariant(PemcBlocks.emcOre),
+           // .setRegistryName(PemcBlocks.emcOre.getRegistryName()),
+         "ore_overworld"
+      );
    }
+   
+   @SubscribeEvent
+   public static void onModelRegister(ModelRegistryEvent event)
+   {
+      PemcBlocks.emcOre.registerModels();
+   }
+   
+   
 }

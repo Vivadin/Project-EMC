@@ -2,6 +2,7 @@ package com.vivadin.projectemc.common.registry;
 
 import com.vivadin.projectemc.ProjectEmc;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -20,6 +21,13 @@ public class ObjectRegistry
       block.setUnlocalizedName(name);
       register(registry, block, name);
       return block;
+   }
+   
+   protected static <T extends Item> T registerItem(IForgeRegistry<Item> registry, T item, String name)
+   {
+      item.setUnlocalizedName(name);
+      register(registry, item, name);
+      return item;
    }
    
    private static <T extends IForgeRegistryEntry<T>> T register(IForgeRegistry<T> registry, T thing, String name)
