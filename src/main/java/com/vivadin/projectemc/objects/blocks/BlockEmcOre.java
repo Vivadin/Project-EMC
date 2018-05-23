@@ -13,13 +13,17 @@ import java.util.Locale;
 public class BlockEmcOre extends EnumBlock<BlockEmcOre.OreType>
 {
    
-   public static PropertyEnum<OreType> VARIANT = PropertyEnum.create("variant", OreType.class);
+   public static PropertyEnum<OreType> TYPE = PropertyEnum.create("type", OreType.class);
    
    public BlockEmcOre() {
-      super(Material.ROCK, VARIANT, OreType.class);
+      super(Material.ROCK, TYPE, OreType.class);
       this.setCreativeTab(CreativeTabs.MATERIALS);
       this.setHardness(0.55f);
       this.setSoundType(SoundType.STONE);
+      this.setDefaultState(
+         this.blockState.getBaseState()
+            .withProperty(TYPE, OreType.ASMIL)
+      );
    }
    
    public enum OreType implements IStringSerializable, IEnumMeta

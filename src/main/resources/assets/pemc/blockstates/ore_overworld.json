@@ -1,9 +1,6 @@
 {
   "variants": {
-    "variant=copper": {
-      "model": "pemc:ore_overworld_copper"
-    },
-    "variant=asmil": {
+    "type=asmil": {
       "model": "pemc:ore_overworld_asmil"
     }
   }

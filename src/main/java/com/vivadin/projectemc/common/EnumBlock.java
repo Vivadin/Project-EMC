@@ -4,6 +4,7 @@ import com.vivadin.projectemc.interfaces.IEnumMeta;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,16 @@ public class EnumBlock<E extends Enum<E> & IEnumMeta & IStringSerializable> exte
       for (E type : values) {
          items.add(new ItemStack(this, 1, type.getMeta()));
       }
+   }
+   
+   @Nonnull
+   @Override
+   protected BlockStateContainer createBlockState()
+   {
+      if (prop == null) {
+         return new BlockStateContainer(this, tmp);
+      }
+      return new BlockStateContainer(this, prop);
    }
    
    @Nonnull
