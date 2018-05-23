@@ -1,6 +1,7 @@
 package com.vivadin.projectemc;
 
 import com.vivadin.projectemc.common.proxy.CommonProxy;
+import com.vivadin.projectemc.common.registry.SmeltingRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -32,6 +33,6 @@ public class ProjectEmc
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    
+        SmeltingRegistry.register();
     }
 }
