@@ -17,7 +17,10 @@ public class WorldGenCustomOres implements IWorldGenerator
    private WorldGenerator ore_overworld_asmil;
    
    public WorldGenCustomOres() {
-      ore_overworld_asmil = new WorldGenMinable(PemcBlocks.emcOre.getDefaultState().withProperty(BlockEmcOre.VARIANT, BlockEmcOre.OreType.ASMIL), 9);
+      ore_overworld_asmil = new WorldGenMinable(
+         PemcBlocks.emcOre.getDefaultState()
+            .withProperty(BlockEmcOre.VARIANT, BlockEmcOre.OreType.ASMIL),
+         9);
    }
    
    private void runGenerator(WorldGenerator gen, World world, Random random, int chunkX, int chunkY, int chance, int minHeight, int maxHeight)
@@ -39,6 +42,6 @@ public class WorldGenCustomOres implements IWorldGenerator
    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
    {
       if (world.provider.getDimension() == 0)
-         runGenerator(ore_overworld_asmil, world, random, chunkX, chunkZ, 10, 1, 100);
+         runGenerator(ore_overworld_asmil, world, random, chunkX, chunkZ, 400, 1, 255);
    }
 }
