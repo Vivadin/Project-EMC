@@ -18,7 +18,7 @@ public class BlockEmcOre extends EnumBlock<BlockEmcOre.OreType>
    public BlockEmcOre() {
       super(Material.ROCK, VARIANT, OreType.class);
       this.setCreativeTab(CreativeTabs.MATERIALS);
-      this.setHardness(0.55f);
+      this.setHardness(7.0f);
       this.setSoundType(SoundType.STONE);
       this.setDefaultState(
          this.blockState.getBaseState()

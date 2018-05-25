@@ -42,6 +42,6 @@ public class WorldGenCustomOres implements IWorldGenerator
    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
    {
       if (world.provider.getDimension() == 0)
-         runGenerator(ore_overworld_asmil, world, random, chunkX, chunkZ, 400, 1, 255);
+         runGenerator(ore_overworld_asmil, world, random, chunkX, chunkZ, 15, 1, 100);
    }
 }

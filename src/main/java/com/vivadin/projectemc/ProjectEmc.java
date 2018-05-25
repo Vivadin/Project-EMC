@@ -31,13 +31,15 @@ public class ProjectEmc
     {
         logger = event.getModLog();
         
-        // Generate Ores
-        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
+        
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        // Generate Ores
+        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
+        
         SmeltingRegistry.register();
     }
 }
