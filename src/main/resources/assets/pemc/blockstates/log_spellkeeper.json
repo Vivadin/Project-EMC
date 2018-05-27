@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=x": { "model": "pemc:log_spellkeeper" },
+    "axis=y": { "model": "pemc:log_spellkeeper" },
+    "axis=z": { "model": "pemc:log_spellkeeper" },
+    "axis=none": { "model": "pemc:log_spellkeeper" }
+  }
+}
