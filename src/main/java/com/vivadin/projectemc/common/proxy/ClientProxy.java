@@ -36,4 +36,10 @@ public class ClientProxy extends CommonProxy
          )
       );
    }
+   
+   @Override
+   public void registerItemRenderer(Item item)
+   {
+      this.registerItemRenderer(item, 0, "inventory");
+   }
 }

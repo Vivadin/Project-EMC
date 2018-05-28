@@ -1,6 +1,7 @@
 package com.vivadin.projectemc.objects.blocks;
 
 import com.vivadin.projectemc.ProjectEmc;
+import com.vivadin.projectemc.interfaces.IHasModel;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.BlockStateContainer;
@@ -10,7 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class BlockPemcLog extends BlockLog
+public class BlockPemcLog extends BlockLog implements IHasModel
 {
    public BlockPemcLog(String name)
    {
@@ -89,6 +90,7 @@ public class BlockPemcLog extends BlockLog
       return 0;
    }
    
+   @Override
    public void registerModels()
    {
       ProjectEmc.proxy.registerItemRenderer(

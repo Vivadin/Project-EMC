@@ -2,10 +2,12 @@ package com.vivadin.projectemc.init;
 
 import com.vivadin.projectemc.common.ItemBlockVariant;
 import com.vivadin.projectemc.common.registry.ObjectRegistry;
+import com.vivadin.projectemc.interfaces.IHasModel;
 import com.vivadin.projectemc.objects.PemcBlocks;
 import com.vivadin.projectemc.objects.PemcItems;
 import com.vivadin.projectemc.objects.blocks.BlockEmcOre;
 import com.vivadin.projectemc.objects.blocks.BlockPemcLog;
+import com.vivadin.projectemc.objects.blocks.BlockPemcPlank;
 import com.vivadin.projectemc.objects.items.ItemBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -31,6 +33,7 @@ public class RegistryHandlers extends ObjectRegistry
       // Register Blocks
       PemcBlocks.emcOre = registerBlock(registry, new BlockEmcOre(), "ore_overworld");
       PemcBlocks.logSpellkeeper = registerBlock(registry, new BlockPemcLog("log_spellkeeper"), "log_spellkeeper");
+      PemcBlocks.plankSpellkeeper = registerBlock(registry, new BlockPemcPlank("plank_spellkeeper"), "plank_spellkeeper");
    }
    
    @SubscribeEvent
@@ -50,10 +53,32 @@ public class RegistryHandlers extends ObjectRegistry
    @SubscribeEvent
    public static void onModelRegister(ModelRegistryEvent event)
    {
-      PemcBlocks.emcOre.registerModels();
-      PemcBlocks.logSpellkeeper.registerModels();
-      PemcItems.asmilIngot.registerModel();
-      PemcItems.asmilNugget.registerModel();
+      //PemcBlocks.emcOre.registerModels();
+      //PemcBlocks.logSpellkeeper.registerModels();
+      //PemcItems.asmilIngot.registerModel();
+      //PemcItems.asmilNugget.registerModel();
+   
+      
+      // Register Models for blocks
+      for (Block block : new Block[]{
+         PemcBlocks.emcOre,
+         PemcBlocks.logSpellkeeper,
+         PemcBlocks.plankSpellkeeper
+      })
+      {
+         if (block instanceof IHasModel)
+            ((IHasModel) block).registerModels();
+      }
+      
+      // Register Models for Items
+      for (Item item : new Item[] {
+         PemcItems.asmilIngot,
+         PemcItems.asmilNugget
+      })
+      {
+         if (item instanceof IHasModel)
+            ((IHasModel) item).registerModels();
+      }
    }
    
    

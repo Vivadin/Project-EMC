@@ -12,7 +12,6 @@ import java.util.Locale;
 
 public class BlockEmcOre extends EnumBlock<BlockEmcOre.OreType>
 {
-   
    public static PropertyEnum<OreType> VARIANT = PropertyEnum.create("variant", OreType.class);
    
    public BlockEmcOre() {

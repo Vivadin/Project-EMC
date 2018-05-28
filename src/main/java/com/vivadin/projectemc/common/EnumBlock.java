@@ -2,6 +2,7 @@ package com.vivadin.projectemc.common;
 
 import com.vivadin.projectemc.ProjectEmc;
 import com.vivadin.projectemc.interfaces.IEnumMeta;
+import com.vivadin.projectemc.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -15,7 +16,7 @@ import net.minecraft.util.NonNullList;
 
 import javax.annotation.Nonnull;
 
-public class EnumBlock<E extends Enum<E> & IEnumMeta & IStringSerializable> extends Block
+public class EnumBlock<E extends Enum<E> & IEnumMeta & IStringSerializable> extends Block implements IHasModel
 {
    public final PropertyEnum<E> prop;
    private final E[] values;
@@ -89,6 +90,7 @@ public class EnumBlock<E extends Enum<E> & IEnumMeta & IStringSerializable> exte
       return values[meta];
    }
    
+   @Override
    public void registerModels()
    {
       for (int i = 0; i < values.length; i++) {

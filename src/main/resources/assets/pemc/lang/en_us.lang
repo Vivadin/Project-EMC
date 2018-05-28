@@ -1,3 +1,6 @@
 tile.ore_overworld_asmil.name=Asmil Ore
 item.nugget_asmil.name=Asmil Nugget
 item.ingot_asmil.name=Asmil Ingot
+
+tile.log_spellkeeper.name=Spellkeeper Log
+tile.plank_spellkeeper.name=Spellkeeper Planks

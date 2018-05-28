@@ -21,6 +21,10 @@ public class ObjectRegistry
    private static List<Item> _itemBlocks = new ArrayList<Item>();
    
    
+   protected static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T block) {
+      return registerBlock(registry, block, block.getUnlocalizedName());
+   }
+   
    protected static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T block, String name)
    {
       if (!name.equals(name.toLowerCase(Locale.US)))
@@ -63,6 +67,11 @@ public class ObjectRegistry
       item.setUnlocalizedName(name);
       register(registry, item, name);
       return item;
+   }
+   
+   protected static <T extends Item> T registerItem(IForgeRegistry<Item> registry, T item)
+   {
+      return registerItem(registry, item, item.getUnlocalizedName());
    }
    
    private static <T extends IForgeRegistryEntry<T>> T register(IForgeRegistry<T> registry, T thing, String name)
